@@ -13,8 +13,9 @@ public interface FilmeRepository extends JpaRepository<Filme, Long> {
             from Filme f
             join f.produtores p
             where f.vencedor = true
+            order by p.nome, f.anoLancamento
             """)
-    List<VitoriaProdutor> buscarVitoriasPorProdutor();
+    List<VitoriaProdutor> buscarVitoriasOrdenadasPorProdutor();
 
     interface VitoriaProdutor {
         String getProdutor();
